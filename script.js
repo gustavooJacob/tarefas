@@ -1,19 +1,24 @@
 function adicionarTarefa() {
     // Pega o que está no input (campo de texto)
-    let inputTarefa = document.getElementById("inputTarefa");
+    const inputTarefa = document.getElementById("inputTarefa");
     // Remove espaços extras no início e no final da string
-    let tarefa = inputTarefa.value.trim(); 
+    let tarefa = inputTarefa.value.trim();
+
+    const mensagemCerto = document.getElementById("mensagem");
+    const mensagemErrado = document.getElementById("mensagem");
 
     // Verifica se o campo de entrada está vazio
     if (tarefa === "") {
         // Exibe a mensagem de erro se o campo estiver vazio
-        document.getElementById("mensagem").textContent = "O campo está vazio. Por favor, insira uma tarefa.";
+        mensagemErrado.textContent = "O campo está vazio. Por favor, insira uma tarefa.";
+        mensagemErrado.style.color = "red";
     } else {
         // Caso o campo não esteja vazio, exibe uma mensagem de sucesso
-        document.getElementById("mensagem").textContent = "Tarefa '" + tarefa + "' adicionada com sucesso";
+        mensagemCerto.textContent = "Tarefa '" + tarefa + "' adicionada com sucesso";
+        mensagemCerto.style.color = "green";
         
         // Busca o elemento da lista de tarefas na página
-        let listaTarefas = document.getElementById("listaTarefas");
+        const listaTarefas = document.getElementById("listaTarefas");
         // Cria um novo item de lista (<li>) para a nova tarefa
         let novaTarefa = document.createElement("li");
 
